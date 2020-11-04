@@ -1,12 +1,14 @@
 var button_login;
 var input_username;
 var input_password;
+var button_info;
 
 function initDom() {
 
     button_login    = $('#button_login');
     input_username  = $('#input_username');
     input_password  = $('#input_password');
+    button_info     = $('#button_info');
 
     button_login.click(()=>{
 
@@ -14,7 +16,8 @@ function initDom() {
 
             if(data.status) {
 
-                location.reload();
+                //location.reload();
+                window.location.href = "?c=menu";
 
             } else {
                 console.error(data.error);
@@ -27,6 +30,11 @@ function initDom() {
         });
 
     });
+
+    button_info.click(()=>{
+        window.location.href = "?c=info";
+    });
+
 }
 
 $(()=>{

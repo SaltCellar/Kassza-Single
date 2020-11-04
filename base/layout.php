@@ -27,21 +27,15 @@
 </head>
 <body>
     
+    <div class="container">
     <?php
 
         if(!isset($_GET['c']) || !file_exists('content/'.$_GET['c'].'.php')) {
             $_GET['c'] = $_SESSION['DEFAULT_CONTENT'];
         }
-        
-        if(!isMember() && !$_GET['c'] != $_SESSION['DEFAULT_CONTENT']) {
-            $_GET['c'] = $_SESSION['DEFAULT_CONTENT']; 
-        }
-    
-    ?>
 
-    <div class="container">
-    <?php
         require('content/'.$_GET['c'].'.php');
+        
     ?>
     </div>
 

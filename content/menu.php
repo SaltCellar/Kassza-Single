@@ -23,4 +23,5 @@
 </div>
 
 <button id="button_logout" style="margin-top: 30px; margin-bottom: 100px;" type="button" class="btn btn-dark"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button>
+<button id="button_info" style="margin-top: 30px; margin-bottom: 100px;" type="button" class="btn btn-dark"><i class="fa fa-info" aria-hidden="true"></i> Info</button>
 <button id="button_settings" style="margin-top: 30px; margin-bottom: 100px;" type="button" class="btn btn-dark"><i class="fa fa-cog" aria-hidden="true"></i> Settings</button>
