@@ -6,34 +6,20 @@ body {
     background-color: white;
     padding: 30px;
     border-radius: 3px;
-    border-bottom: 5px solid #c9c9c9;
+	border-bottom: 5px solid #c9c9c9;
+	
+	-webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.1);
 }
 
-.eu_keret {
+
 	/*
+		EU
 		#003399
 		#FFCC00
 	*/
-	background-color: #003399;
-	border-bottom: 5px solid #081336;
-    padding: 30px;
-    border-radius: 3px;
-}
-.eu_keret img {
-	width: 50px;
-	height: 50px;
-}
-.eu_keret h4 {
-	color: #eef7ff;
-	line-height: 50px;
-	margin-left: 10px;
-}
-.eu_keret p {
-	color: white;
-}
-.eu_keret a {
-	color: #FFCC00;
-}
+
 
 .menuRow button{
     width:100%;

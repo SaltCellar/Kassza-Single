@@ -2,8 +2,6 @@
     //if(!isMember()) location('c=login');;
     if(isMember()) location('c=menu');
     setTitle('Login');
-
-    
 ?>
 
 <div style="    
@@ -31,15 +29,18 @@
 
     </div>
 
-    <div class="eu_keret" style="margin-top: 50px; margin-bottom: 100px;">
-        <div style="display: flex; flex-wrap: wrap; margin-bottom: 10px;">
-            <img src="res/eu.svg" alt="Kiwi standing on oval">
-            <h4>EU Ready <small>HU</small></h4>
-        </div>
-        <p><i>Ez az oldal sütiket használ! Az oldal megfelelő és biztosnágos működéséhez elngethetetlen a sütik használata. Az oldal használatával elfogadja a sütik használatát.</i></p>
-        <a href="?c=eu/cookies"><i class="fa fa-link" aria-hidden="true"></i> Sütik (Cookies)</a><br>
-        <a href="?c=eu/adatvedelmi-tajekoztato"><i class="fa fa-link" aria-hidden="true"></i> Adatvédelmi Tájékoztató</a><br>
-        <a href="?c=eu/impressum"><i class="fa fa-link" aria-hidden="true"></i> Impresszum</a><br>
+    <div class="keret" style="margin-top: 50px; margin-bottom: 100px;">
+        
+        <p>
+            <b style="background-color: #003399; color: white; padding: 10px; border-radius: 5px;">
+                <img src="res/eu.svg" style="width: 30px; padding-bottom: 5px;" alt="EU SVG"> EU Ready <small>HU</small>
+            </b>
+        </p>
+
+        <p>Ez az oldal sütiket használ! Az oldal megfelelő és biztosnágos működéséhez elngethetetlen a sütik használata. Az oldal használatával elfogadja a sütik használatát.</p>
+        <a href="?c=eu/cookies"><i class="fa fa-link"></i> Sütik (Cookies)</a><br>
+        <a href="?c=eu/adatvedelmi-tajekoztato"><i class="fa fa-link"></i> Adatvédelmi Tájékoztató</a><br>
+        <a href="?c=eu/impressum"><i class="fa fa-link"></i> Impresszum</a><br>
     </div>
 
 </div>
