@@ -9,6 +9,32 @@ body {
     border-bottom: 5px solid #c9c9c9;
 }
 
+.eu_keret {
+	/*
+		#003399
+		#FFCC00
+	*/
+	background-color: #003399;
+	border-bottom: 5px solid #081336;
+    padding: 30px;
+    border-radius: 3px;
+}
+.eu_keret img {
+	width: 50px;
+	height: 50px;
+}
+.eu_keret h4 {
+	color: #eef7ff;
+	line-height: 50px;
+	margin-left: 10px;
+}
+.eu_keret p {
+	color: white;
+}
+.eu_keret a {
+	color: #FFCC00;
+}
+
 .menuRow button{
     width:100%;
     margin:15px auto;
