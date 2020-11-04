@@ -1,0 +1,36 @@
+DATABASE - napok ->
+    kp_sz          - int(11)
+    bv_osz          - int(11)
+    ny_db           - int(11)   Nyugták száma
+    bv_bank         - int(11)
+    ki_osz          - int(11)
+    ki_db           - int(11)   Kiadások (Nyugták) száma
+    bv_a            - int(11)   5%
+    bv_b            - int(11)   18%
+    bv_c            - int(11)   27%
+    bv_d            - int(11)   0% AJT
+    bv_e            - int(11)   0% TAM
+    date            - int(16)
+DATABASE - kp ->
+    json        - text
+
+    [
+        '5'     -> 0,
+        '10'    -> 0,
+        '20'    -> 0,
+        '50'    -> 0,
+        '100'   -> 0,
+        '200'   -> 0,
+        '500'   -> 0,
+        '1000'  -> 0,
+        '2000'  -> 0,
+        '5000'  -> 0,
+        '10000' -> 0,
+        '20000' -> 0
+    ]
+
+
+INSERT
+UPDATE
+GET
+

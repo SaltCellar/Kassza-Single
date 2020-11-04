@@ -1,0 +1,10 @@
+function initDom() {
+
+}
+
+
+$(()=>{
+
+    initDom();
+
+});
