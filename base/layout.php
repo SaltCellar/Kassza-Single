@@ -55,6 +55,31 @@
         _parent.append('<div class="alert alert-'+_type+' alert-dismissible fade show" role="alert">'+_content+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
     }
 
+    function numberFormat(_num) {
+        _num = _num.toString();
+        var pattern = /(-?\d+)(\d{3})/;
+        while (pattern.test(_num))
+            _num = _num.replace(pattern, "$1 $2");
+        return _num;
+    }
+
+    (function($) {
+        $.fn.inputFilter = function(inputFilter) {
+            return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function() {
+            if (inputFilter(this.value)) {
+                this.oldValue = this.value;
+                this.oldSelectionStart = this.selectionStart;
+                this.oldSelectionEnd = this.selectionEnd;
+            } else if (this.hasOwnProperty("oldValue")) {
+                this.value = this.oldValue;
+                this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+            } else {
+                this.value = "";
+            }
+            });
+        };
+    }(jQuery));
+
     function executeAjax(_callback,_endpoint,_data = {}) {
 
         $.ajax({

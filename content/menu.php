@@ -11,13 +11,13 @@
 
     <div class="row menuRow">
         <div class="col-sm">
-            <button type="button" class="btn btn-outline-dark btn-lg"><i class="fa fa-sun-o" aria-hidden="true"></i><br>Nyitás</button>
+            <button id="button_menu_nyitas" type="button" class="btn btn-outline-dark btn-lg"><i class="fa fa-sun-o" aria-hidden="true"></i><br>Nyitás</button>
         </div>
         <div class="col-sm">
-            <button type="button" class="btn btn-outline-dark btn-lg"><i class="fa fa-moon-o" aria-hidden="true"></i><br>Zárás</button>
+            <button id="button_menu_zaras" type="button" class="btn btn-outline-dark btn-lg"><i class="fa fa-moon-o" aria-hidden="true"></i><br>Zárás</button>
         </div>
         <div class="col-sm">
-            <button type="button" class="btn btn-outline-dark btn-lg"><i class="fa fa-calendar-o" aria-hidden="true"></i><br>Adatok</button>
+            <button id="button_menu_adatok" type="button" class="btn btn-outline-dark btn-lg"><i class="fa fa-calendar-o" aria-hidden="true"></i><br>Adatok</button>
         </div>
     </div>
 </div>

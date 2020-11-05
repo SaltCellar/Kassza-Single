@@ -4,4 +4,103 @@
     setTitle('Zárás');
 ?>
 
-<h1>Zárás</h1>
+<div class="keret" style="margin: 100px auto;">
+
+    <div class="row" style="margin-bottom: 50px;">
+        <div class="col">
+
+            <div class="splitRow">
+                <h3>Zárás</h3>
+                <button id="button_back" type="button" class="btn btn-dark"><i class="fa fa-times" aria-hidden="true"></i></button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 50px;">
+        <div class="col-md" id="col_a">
+            
+            <div class="splitRow penzRow">
+                <b>5 Ft</b>
+                <input id="kp_5" type="text" class="form-control">
+            </div>
+
+            <div class="splitRow penzRow">
+                <b>10 Ft</b>
+                <input id="kp_10" type="text" class="form-control">
+            </div>
+
+            <div class="splitRow penzRow">
+                <b>20 Ft</b>
+                <input id="kp_20" type="text" class="form-control">
+            </div>
+
+            <div class="splitRow penzRow">
+                <b>50 Ft</b>
+                <input id="kp_50" type="text" class="form-control">
+            </div>
+
+            <div class="splitRow penzRow">
+                <b>100 Ft</b>
+                <input id="kp_100" type="text" class="form-control">
+            </div>
+
+            <div class="splitRow penzRow">
+                <b>200 Ft</b>
+                <input id="kp_200" type="text" class="form-control">
+            </div>
+
+        </div>
+        <div class="col-md" id="col_b">
+
+            <div class="splitRow penzRow">
+                <b>500 Ft</b>
+                <input id="kp_500" type="text" class="form-control">
+            </div>
+
+            <div class="splitRow penzRow">
+                <b>1000 Ft</b>
+                <input id="kp_1000" type="text" class="form-control">
+            </div>
+
+            <div class="splitRow penzRow">
+                <b>2000 Ft</b>
+                <input id="kp_2000" type="text" class="form-control">
+            </div>
+
+            <div class="splitRow penzRow">
+                <b>5000 Ft</b>
+                <input id="kp_5000" type="text" class="form-control">
+            </div>
+
+            <div class="splitRow penzRow">
+                <b>10000 Ft</b>
+                <input id="kp_10000" type="text" class="form-control">
+            </div>
+
+            <div class="splitRow penzRow">
+                <b>20000 Ft</b>
+                <input id="kp_20000" type="text" class="form-control">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 50px;">
+        <div class="col">
+            <h4 id="total_kp" class="text-center">0 Ft</h4>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 50px;">
+        <div class="col">
+
+            <div class="splitRow penzRow" style="max-width: 450px;">
+                <b>Bevétel összesen</b>
+                <input id="aslédkaélsdkélaskdélaskd" type="text" class="form-control">
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -37,6 +37,23 @@ body {
     width: 100%;
 }
 
+.penzRow {
+	background-color: #ececec;
+	border-radius: 5px;
+	padding: 15px 30px;
+
+	margin: 0px auto;
+	margin-bottom: 20px;
+
+	max-width: 80%;
+}
+.penzRow input {
+	max-width: 100px;
+}
+.font_gray b {
+	color: #a1a1a1;
+}
+
 /*
     SWITCH
 */

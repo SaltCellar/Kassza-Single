@@ -130,31 +130,62 @@
 
         //Change username or password
         'change-uop' => function() {
+            if(isMember()) {
 
-            $_target    = $_POST['data']['target'];
-            $_value     = $_POST['data']['value'];
+                $_target    = $_POST['data']['target'];
+                $_value     = $_POST['data']['value'];
+    
+                if (is_bool($_target) !== true) {
+                    response(false,false,"The [Target] value received is not boolean!");
+                }
+    
+                if (is_string($_value) !== true) {
+                    response(false,false,"The [Value] value received is not string!");
+                }
+    
+                if ( !preg_match('/^[A-Za-z][A-Za-z0-9]{5,31}$/', $_value) ) {
+                    response(false,false,"Incorrect string!");
+                }
+    
+                if($_target) {
+                    $_SESSION['USER']['username'] = password_hash($_value,PASSWORD_DEFAULT);
+                } else {
+                    $_SESSION['USER']['password'] = password_hash($_value,PASSWORD_DEFAULT);
+                }
+    
+                file_put_contents('private/user.json',json_encode($_SESSION['USER']));
+    
+                response(true);
 
-            if (is_bool($_target) !== true) {
-                response(false,false,"The [Target] value received is not boolean!");
-            }
-
-            if (is_string($_value) !== true) {
-                response(false,false,"The [Value] value received is not string!");
-            }
-
-            if ( !preg_match('/^[A-Za-z][A-Za-z0-9]{5,31}$/', $_value) ) {
-                response(false,false,"Incorrect string!");
-            }
-
-            if($_target) {
-                $_SESSION['USER']['username'] = password_hash($_value,PASSWORD_DEFAULT);
             } else {
-                $_SESSION['USER']['password'] = password_hash($_value,PASSWORD_DEFAULT);
+                response(false,false,"You are not logged in!");
             }
+        },
 
-            file_put_contents('private/user.json',json_encode($_SESSION['USER']));
+        //Return the last close chash count
+        'get-utolso-zaras' => function() {
+            if(isMember()) {
 
-            response(true);
+                $load = json_decode(file_get_contents('private/utolso_zaras.json'),true);
+
+                $result['time'] = date('Y.m.d.', $load['time']);
+                $result['col_a'] = [];
+                $result['col_b'] = [];
+
+                unset($load['time']);
+
+                foreach ($load as $k => $v) {
+                    if($k < 500) {
+                        $result['col_a'][$k] = $v;
+                    } else {
+                        $result['col_b'][$k] = $v;
+                    }
+                }
+
+                response(true,$result);
+            } else {
+                response(false,false,"You are not logged in!");
+            }
         },
 
     ];

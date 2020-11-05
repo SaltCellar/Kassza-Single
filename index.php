@@ -50,7 +50,9 @@
 
     // SETTINGS ...
 
-
+    function getTime() {
+        return time() + 60;
+    }
 
     // AJAX REQUEST
 
