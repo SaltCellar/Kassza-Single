@@ -1,5 +1,5 @@
 DATABASE - napok ->
-    kp_sz          - int(11)
+    kp_sz           - int(11)
     bv_osz          - int(11)
     ny_db           - int(11)   Nyugták száma
     bv_bank         - int(11)
@@ -29,6 +29,10 @@ DATABASE - kp ->
         '10000' -> 0,
         '20000' -> 0
     ]
+
+ADATOK
+    Jelenlegi hónap
+    
 
 
 INSERT
