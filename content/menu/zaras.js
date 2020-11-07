@@ -1,14 +1,26 @@
 var button_back;
+var button_zaras;
 var kp_inputs;
 var total_kp;
 var options;
 
+var total;
+
+var settings_input;
+
 function initDom() {
+
+    total = 0;
 
     button_back = $('#button_back');
     button_back.click(()=>{
         window.location.href = "?c=menu";
     });
+
+    button_zaras = $('#button_zaras');
+    button_zaras.click(zaras);
+
+    settings_input = $('#settings_input');
 
     total_kp = $('#total_kp');
 
@@ -55,12 +67,12 @@ function initDom() {
 $(()=>{
 
     initDom();
-    loadSettingsAndBuildUI();
+    loadSettings();
 
 });
 
 function totalCalc() {
-    let total = 0;
+    total = 0;
     $.when($.each(kp_inputs,(k,v)=>{
         let p = parseInt(v.val());
         if(isNaN(p)) { p = 0; }
@@ -70,17 +82,80 @@ function totalCalc() {
     });
 }
 
-function loadSettingsAndBuildUI() {
-    let _data = false;
-    $.when(
-        executeAjax((data)=>{
-            if(data.status) {
-                _data = data.data;
-            } else {
-                console.error(data.error);
-            }
-        },'get-settings')
-    ).then(
-        
-    );
+function loadSettings() {
+
+
+    executeAjax((data)=>{
+        if(data.status) {
+
+            $.when(
+                $.each(data.data,(k,v)=>{
+                    if(v) {options[k].input = true;}
+                })
+            ).then(
+                buildUi()
+            );
+
+        } else {
+            console.error(data.error);
+        }
+    },'get-settings');
+
+}
+
+function buildUi() {
+    settings_input.html('');
+    $.each(options,(k,v)=>{
+        if(v.input) {
+            $.when(
+                settings_input.append('<div class="splitRow penzRow" style="max-width: 500px;"><b>'+v.title+'</b><input id="'+k+'" type="text" class="form-control"></div>')
+            ).then( () => {
+                    v.input = $('#'+k);
+                    v.input.inputFilter(function(value) {
+                        return /^\d*$/.test(value);    // Allow digits only, using a RegExp
+                    });
+                }
+            );
+        }
+    });
+}
+
+function zaras() {
+    //kp_inputs
+    //options if not false
+
+    //kp_inputs
+    //options
+
+    let DATA = {
+        kp: {},
+        options: {},
+    };
+
+    $.each(kp_inputs,(k,v)=>{
+        let p = parseInt(v.val());
+        if(isNaN(p)) { p = 0; }
+        DATA['kp'][k] = p;
+    });
+
+    $.each(options,(k,v)=>{
+        let p = false;
+        if(v.input !== false) {
+            p = parseInt(v.input.val());
+            if(isNaN(p)) { p = 0; }
+            DATA['options'][k] = p;
+        }
+    });
+
+    DATA['options']['kp'] = total;
+    executeAjax((data)=>{
+        if(data.status) {
+            bootstrapAlert($('#zaras_alert'),'success',data.data);
+        } else {
+            console.error(data.error);
+            bootstrapAlert($('#zaras_alert'),'danger',data.error);
+        }
+    },'zaras',DATA);
+
+    console.log("Script done.");
 }

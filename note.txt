@@ -35,3 +35,8 @@ INSERT
 UPDATE
 GET
 
+FIX ->
+    Load USER data
+    Display Input type "db" or "Ft"
+    Install.php
+    impressum

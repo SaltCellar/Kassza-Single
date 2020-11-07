@@ -4,7 +4,7 @@
     setTitle('Zárás');
 ?>
 
-<div class="keret" style="margin: 100px auto;">
+<div class="keret" style="margin: 100px auto; max-width: 930px;">
 
     <div class="row" style="margin-bottom: 50px;">
         <div class="col">
@@ -88,19 +88,21 @@
 
     <div class="row" style="margin-bottom: 50px;">
         <div class="col">
-            <h4 id="total_kp" class="text-center">0 Ft</h4>
+            <h4 class="text-center">Kassza tartalma:<br><b id="total_kp">0 Ft</b></h4>
+        </div>
+    </div>
+
+    <div id="settings_input" class="row" style="margin-bottom: 50px;">
+        <div class="col">
+
         </div>
     </div>
 
     <div class="row" style="margin-bottom: 50px;">
-        <div class="col">
-
-            <div class="splitRow penzRow" style="max-width: 450px;">
-                <b>Bevétel összesen</b>
-                <input id="aslédkaélsdkélaskdélaskd" type="text" class="form-control">
-            </div>
-
+        <div class="col text-center">
+            <button id="button_zaras" type="button" style="max-width: 100px;" class="btn btn-dark btn-lg"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Zárás</button>
         </div>
     </div>
+    <div id="zaras_alert"></div>
 
 </div>

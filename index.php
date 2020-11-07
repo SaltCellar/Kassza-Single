@@ -4,12 +4,11 @@
         return '4D1wCP67Zm2y3Dfq';
     }
 
-    require('base/dbm.php');
-    
-
     session_start();
     if(!isset($_SESSION['KEY']) || $_SESSION['KEY'] !== neverCallGetSiteKey()) {
         
+        date_default_timezone_set('Europe/Budapest');
+
         $_SESSION = [
             'KEY'       => neverCallGetSiteKey(),
             'START'     => time(),
@@ -31,7 +30,7 @@
             'SETTINGS'          => false,   // <- load from private
         ];
 
-        //$_SESSION['USER'] = dbm_getUSER();
+        //HAM
 
         if (
             file_exists('private/user.json') &&
@@ -50,8 +49,20 @@
 
     // SETTINGS ...
 
-    function getTime() {
-        return time() + 60;
+    function makeDate($_year,$_month,$_day) {
+        return mktime(0, 0, 0, $_month, $_day, $_year);
+    }
+
+    function getDateStamp() {
+        return mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+    }
+
+    function getMonthRange($_year,$_month) {
+        $_dayCount = date('t',mktime(0, 0, 0, $_month, 1, $_year));
+        return [
+            'start' => mktime(0, 0, 0, $_month, 1, $_year)          -1,
+            'end'   => mktime(0, 0, 0, $_month, $_dayCount, $_year) +86400
+        ];
     }
 
     // AJAX REQUEST

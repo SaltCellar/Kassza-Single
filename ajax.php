@@ -188,6 +188,55 @@
             }
         },
 
+        //Save utolso-zaras & update Database
+        'zaras' => function() {
+            if(isMember()) {
+
+                //READ DATA FROM REQUEST
+                $_kp = $_POST['data']['kp'];
+                $_options = $_POST['data']['options'];
+
+                //OPTIONS
+                $OPTIONS = [
+                    'bv_osz'    => 0,
+                    'ny_db'     => 0,
+                    'bv_bank'   => 0,
+                    'ki_osz'    => 0,
+                    'ki_db'     => 0,
+                    'bv_a'      => 0,
+                    'bv_b'      => 0,
+                    'bv_c'      => 0,
+                    'bv_d'      => 0,
+                    'bv_e'      => 0,
+                ];
+
+                $OPTIONS['kp'] = 0;
+
+                foreach($_options as $k => $v) {
+                    $OPTIONS[$k] = $v;
+                }
+
+                $OPTIONS['time'] = getDateStamp();
+
+
+
+                //OPTIONS - SAVE TO DB
+                require('base/dbm.php');
+
+                $res = dbm_addNap($OPTIONS);
+
+                //KP
+                $_kp['time'] = getDateStamp();
+                file_put_contents('private/utolso_zaras.json',json_encode($_kp));
+
+                //RESPONSE
+                response($res,"Sikeresen mentve!");
+
+            } else {
+                response(false,false,"You are not logged in!");
+            }
+        },
+
     ];
 
     // Execute
