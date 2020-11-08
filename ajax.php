@@ -237,6 +237,19 @@
             }
         },
 
+        //Get the first year
+        'get-first-year' => function() {
+            if(isMember()) {
+                require('base/dbm.php');
+                response(true,[
+                    'first' => dbm_getFirstYear(),
+                    'now' => date('Y',time())
+                ]);
+            } else {
+                response(false,false,"You are not logged in!");
+            }
+        },
+
     ];
 
     // Execute

@@ -12,7 +12,7 @@
 
     $_SESSION['THE_KP'] = 400000;
 
-    //fill_year(2021);
+    //fill_year(2019);
 
 
     // FUNCTIONS:

@@ -98,12 +98,37 @@
 
     function dbm_getNap($_date) {
 
-        
-
     }
 
     function dbm_getHonap($_date) {
 
+    }
+
+    function dbm_getFirstYear() {
+
+        $sql = "SELECT time FROM napok ORDER BY time ASC LIMIT 1";
+        $res = false;
+
+        $conn = dbm_connection();
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            // output data of each row
+            while($row = mysqli_fetch_assoc($result)) {
+                $res = date('Y',$row["time"]);
+            }
+        } else {
+            $res = false;
+        }
+
+        mysqli_close($conn);
+
+        return $res;
     }
 
 ?>

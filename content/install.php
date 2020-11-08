@@ -6,8 +6,7 @@
 
 <?php
     
-    print getDateStamp();
-    print "<br>";
-    print time();
+    require('base/dbm.php');
+    print(date('Y',time()));
     
 ?>
