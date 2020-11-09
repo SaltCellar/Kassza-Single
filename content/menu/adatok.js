@@ -3,6 +3,8 @@ var button_back;
 var select_year;
 var select_month;
 
+var button_mutat;
+
 function initDom() {
 
     button_back = $('#button_back');
@@ -12,6 +14,9 @@ function initDom() {
 
     select_year = $('#select_year');
     select_month = $('#select_month');
+
+    button_mutat = $('#button_mutat');
+    button_mutat.click(mutat);
 
 }
 
@@ -39,10 +44,22 @@ function fillYears() {
                 select_year.append('<option value="'+data.data.now+'">'+data.data.now+'</option>');
             }
 
+            // SET CURRENT YEAR & MONTH
+            let dateObj = new Date();
+            let year = dateObj.getUTCFullYear();
+            let month = dateObj.getUTCMonth() + 1; //months from 1-12
+
+            select_year.val(year);
+            select_month.val(month);
+
+
         } else {
             console.error(data.error);
         }
     },'get-first-year');
 
 }
-// UI
+
+function mutat() {
+    window.location.href = "?c=menu/adatok/adat" + "&y=" + select_year.val() + "&m=" + select_month.val();
+}

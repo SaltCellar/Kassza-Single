@@ -250,6 +250,37 @@
             }
         },
 
+        //Get all date from a specified month
+        'get-month' => function() {
+            //dbm_getHonap($y,$m);
+            if(isMember()) {
+                require('base/dbm.php');
+
+                if(!isset($_POST['data']['y']) || !isset($_POST['data']['m'])) {
+                    response(false,false,"Missing parameters!");
+                }
+
+                $y = $_POST['data']['y'];
+                $m = $_POST['data']['m'];
+
+                if(!is_int($y) || !is_int($m)) {
+                    response(false,false,"Invalid parameter formatum!");
+                }
+
+                if($y < 1000 || $y > 9999) {
+                    $y = date('Y',time());
+                }
+
+                if($m > 12 || $m < 1) {
+                    $m = date('m',time());
+                }
+
+                response(true,dbm_getHonap($y,$m));
+            } else {
+                response(false,false,"You are not logged in!");
+            }
+        },
+
     ];
 
     // Execute

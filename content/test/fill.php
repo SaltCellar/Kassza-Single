@@ -12,7 +12,13 @@
 
     $_SESSION['THE_KP'] = 400000;
 
-    //fill_year(2019);
+    fill_year(2019); echo "Done.";
+
+    /*
+    for($i = 1; $i < 13; $i++) {
+        echo date('Y-m-d H:i:s',getMonthRange(2019,$i)['end']) . '<br>';
+    }
+    */
 
 
     // FUNCTIONS:
@@ -29,7 +35,7 @@
     function fill_day($time) {
 
         $OPTIONS = [
-            'bv_osz'    => randomEzres(25,80),
+            'bv_osz'    => randomEzres(25,90),
             'ny_db'     => rand(6,15),
             'bv_bank'   => randomEzres(5,20),
             'ki_osz'    => randomKifiz(),
@@ -49,9 +55,13 @@
         $OPTIONS['bv_b'] = $res['bv_b'];
         $OPTIONS['bv_c'] = $res['bv_c'];
 
-        $_SESSION['THE_KP'] += $OPTIONS['bv_osz'] - $OPTIONS['bv_bank'];
+        $kp_bevetel = $OPTIONS['bv_osz'] - $OPTIONS['bv_bank'];
+
+        $_SESSION['THE_KP'] += $kp_bevetel;
         $_SESSION['THE_KP'] -= $OPTIONS['ki_osz'];
         $OPTIONS['kp'] = $_SESSION['THE_KP'];
+
+        echo($OPTIONS['kp']." Bevétel: ".$kp_bevetel." Kiadás: ".$OPTIONS['ki_osz']."<br>");
 
         // ADD TO DB
 
@@ -65,7 +75,7 @@
 
     function randomKifiz() {
         if(rand(0,5) > 3) {
-            return randomEzres(0,40);
+            return randomEzres(70,190);
         } else {
             return 0;
         }

@@ -60,8 +60,8 @@
     function getMonthRange($_year,$_month) {
         $_dayCount = date('t',mktime(0, 0, 0, $_month, 1, $_year));
         return [
-            'start' => mktime(0, 0, 0, $_month, 1, $_year)          -1,
-            'end'   => mktime(0, 0, 0, $_month, $_dayCount, $_year) +86400
+            'start' => mktime(0, 0, 0, $_month, 1, $_year)          - 1,
+            'end'   => mktime(0, 0, 0, $_month, $_dayCount, $_year) + 43200
         ];
     }
 

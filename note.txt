@@ -31,7 +31,15 @@ DATABASE - kp ->
     ]
 
 ADATOK
-    Jelenlegi hónap
+    Rögzitett napok: 29/30
+
+    Bevétel összesen
+    Kiadás összesen
+    BANK / KP arány
+
+    Nyugták száma
+    Kiadások száma
+
     
 
 
